@@ -21,8 +21,12 @@ html, body{
 header{
     height: 130px;
     padding: 20px 0;
+} 
+.alertaText{
+    padding: 10px;
+    position: relative;
+    
 }
-
 .logo{
     width: 50%;
 }
