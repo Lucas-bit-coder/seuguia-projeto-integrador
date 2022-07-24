@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/usuario.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <input type="checkbox" name="rd" class="rd-mostrar" id="perfil-id" />
+      <label for="perfil-id" class="perfil"></label>
+      <div class="container-config">
+        <label class="boxfoto"></label>
+        <div class="line"></div>
+        <div class="textoconfig">
+          <span>Postar Passeios</span>
+          <span>Editar perfil</span>
+          <span class="update">Configurações</span>
+        </div>
+      </div>
+      <a href="http://localhost:8080"
+        ><img src="/image/logo/LogoHorizontal.svg" alt="Logo"
+      /></a>
+    </nav>
+    <div class="background-pesquisa"></div>
+    <div class="areapesquisa">
+      <div class="caixa-pesquisa">
+        <div class="guia">Guia</div>
+        <div class="passeio">Passeios</div>
+        <input type="search" class="pesquisa" placeholder="Buscar..." />
+        <button type="button" class="botao">Pesquisar</button>
+        <input
+          type="checkbox"
+          class="rd-filter"
+          id="filter-id"
+          name="rd-filter-icon"
+        />
+        <label for="filter-id" class="filtro-icone"></label>
+        <div class="caixa-filtros">
+          <ul class="filtros">
+            <div class="avaliacao">
+              <input type="checkbox" />
+              <li>Avaliação</li>
+            </div>
+            <div class="estado">
+              <input type="checkbox" />
+              <li>Estado</li>
+            </div>
+            <div class="idioma">
+              <input type="checkbox" />
+              <li>Idioma</li>
+            </div>
+            <div class="estilosdepasseios">
+              <input type="checkbox" />
+              <li>Estilos de Passeios</li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
