@@ -1,0 +1,48 @@
+CREATE TABLE cadastro  (
+	id int auto_increment primary key,
+	nome varchar(60) not null,
+	senha varchar(32)not null,
+	email varchar(60) unique
+)   
+
+CREATE TABLE tipo_de_conta  (
+	id int auto_increment primary key,
+	guia bool not null	
+)  
+
+CREATE TABLE enderecos (
+	id int auto_increment primary key,
+	estado varchar(20) not null,
+	cidade varchar(30) not null,
+	rua varchar(50) not null,
+	cep varchar(10),
+	complemento varchar(20) not null
+)
+
+
+CREATE TABLE passeios (
+	id int auto_increment primary key,
+	nome_passeio varchar(60) not null,
+	localidade varchar(60) not null,
+	instrucoes varchar(300) not null,
+	data_inicio timestamp(0) NULL,
+	data_fim timestamp(0) NULL,
+	valor int(5)
+)
+
+insert into cadastro  (nome, senha, email) 
+values ('Caio', 'caio123', 'caio@oba.com')
+
+insert into enderecos (estado, cidade, rua, cep, complemento)
+values('Paraiba', 'conde', 'antonio flavio', '58322000', 'casa')
+
+insert into passeios (nome_passeio, localidade, instrucoes, data_inicio, data_fim, valor)
+values ('Coqueirinho, dedo de deus', 'Litoral sul-PB', 'Um passeio tranquilo, o passeio comporta no maximo quatro pessoas, o transporte usado será um BUGGY e conta com uma bela vista...', '2022-08-15T21:05:00', '2022-08-15T21:05:00', '200')
+
+select * from cadastro
+select * from enderecos
+select * from passeios
+
+ALTER TABLE `projeto-guia-dev`.enderecos ADD CONSTRAINT enderecos_FK FOREIGN KEY (id) REFERENCES `projeto-guia-dev`.cadastro(id);
+ALTER TABLE `projeto-guia-dev`.tipo_de_conta ADD CONSTRAINT tipo_de_conta_FK FOREIGN KEY (id) REFERENCES `projeto-guia-dev`.cadastro(id);
+ALTER TABLE `projeto-guia-dev`.passeios ADD CONSTRAINT passeios_FK FOREIGN KEY (id) REFERENCES `projeto-guia-dev`.cadastro(id);
