@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cadastro {
+  id      Int     @id @default(autoincrement())
+  nome    String
+  email   String
+  celular String?
+  cpf     String?
+  crg     String?
+  senha   String
+  endercos Enderecos[]
+  tipoDeConta TipoDeConta[]
+  passeios    Passeios[]
+}
+
+model Enderecos {
+  id          Int                      @id @default(autoincrement())
+  estado      String
+  cidade      String
+  rua         String
+  cep         Int
+  complemento Int?
+  numero      String
+  IDCadastro  Int?
+  cadastro      Cadastro? @relation(fields: [IDCadastro], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model TipoDeConta {
+  id          Int       @id @default(autoincrement())
+  guia        Int       @default(0)
+  IDCadastro  Int?
+  cadastro    Cadastro? @relation(fields: [IDCadastro], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Passeios {
+  id          Int                      @id @default(autoincrement())
+  nome_passio String 
+  localidade  String 
+  instrucoes  String
+  data_inicio String
+  data_fim    String
+  valor       Int?
+  IDCadastro  Int?
+  cadastro    Cadastro? @relation(fields: [IDCadastro], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
